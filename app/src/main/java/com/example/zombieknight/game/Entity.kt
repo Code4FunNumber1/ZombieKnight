@@ -37,6 +37,8 @@ open class Entity(size: Vec2) {
         return finished
     }
 
+    fun addSound(name: String) : Sound = Assets.sound(name)
+
     companion object {
         const val WINDOW_WIDTH = 1280f
         const val WINDOW_HEIGHT = 736f
