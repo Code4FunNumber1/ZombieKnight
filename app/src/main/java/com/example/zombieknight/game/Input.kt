@@ -9,27 +9,22 @@ enum class Action {
 }
 
 class Input {
-    fun isPressed() {
 
+    private val held = mutableSetOf<Action>()
+    private val pressed = mutableSetOf<Action>()
+
+    fun isPressed(action: Action) = action in held
+
+    fun justPressed(action: Action) = action in pressed
+
+    fun pressAction(action: Action) {
+        if(action !in held) pressed.add(action)
+        held.add(action)
     }
 
-    fun justPressed() {
+    fun releaseAction() = held.remove(action)
 
-    }
+    fun releaseAll(action: Action) = held.clear()
 
-    fun pressAction() {
-
-    }
-
-    fun releaseAction() {
-
-    }
-
-    fun releaseAll() {
-
-    }
-
-    fun endTick() {
-
-    }
+    fun endTick() = pressed.clear()
 }
