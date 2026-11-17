@@ -21,4 +21,8 @@ class Tile(pos: Vec2, val type: Type) :
         setTopLeft(pos)
     }
 
+    companion object {
+        val SIZE = Vec2(32f, 32f)
+    }
+
 }
